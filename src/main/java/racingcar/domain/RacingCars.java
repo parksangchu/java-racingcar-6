@@ -18,4 +18,15 @@ public class RacingCars {
             throw new IllegalArgumentException(INVALID_RACING_CARS_SIZE.getMessage());
         }
     }
+
+    public void startRace(Turn turn, int movableNumber) {
+        for (int i = 0; i < turn.getTurn(); i++) {
+            racingCars
+                    .forEach(racingCar -> racingCar.moveForward(movableNumber));
+        }
+    }
+
+    public List<RacingCar> getRacingCars() {
+        return racingCars;
+    }
 }
