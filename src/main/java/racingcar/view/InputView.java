@@ -10,4 +10,9 @@ public class InputView {
         System.out.println(ASK_CAR_NAMES);
         return Console.readLine();
     }
+
+    public static String readTurn() {
+        System.out.println(ASK_TURN);
+        return Console.readLine();
+    }
 }
