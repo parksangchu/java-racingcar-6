@@ -7,4 +7,12 @@ public class RacingCar {
     public RacingCar(CarName carName) {
         this.carName = carName;
     }
+
+    public String getCarName() {
+        return carName.getCarName();
+    }
+
+    public int getDistance() {
+        return distance;
+    }
 }

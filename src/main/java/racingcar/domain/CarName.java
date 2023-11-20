@@ -28,4 +28,8 @@ public class CarName {
             throw new IllegalArgumentException(INVALID_NAME_TYPE.getMessage());
         }
     }
+
+    public String getCarName() {
+        return carName;
+    }
 }
