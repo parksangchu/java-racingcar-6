@@ -19,9 +19,9 @@ public class RacingCars {
         }
     }
 
-    public void startRace(int movableNumber) {
+    public void startRace() {
         racingCars
-                .forEach(racingCar -> racingCar.moveForward(movableNumber));
+                .forEach(racingCar -> racingCar.moveForward(RandomNumberGenerator.generateRandomNumber()));
     }
 
     public List<RacingCar> getRacingCars() {
