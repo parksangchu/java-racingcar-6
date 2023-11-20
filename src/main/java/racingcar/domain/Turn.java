@@ -1,7 +1,7 @@
 package racingcar.domain;
 
-import static racingcar.domain.ErrorMessage.INVALID_NAME_TYPE;
 import static racingcar.domain.ErrorMessage.INVALID_TURN_RANGE;
+import static racingcar.domain.ErrorMessage.INVALID_TURN_TYPE;
 
 public class Turn {
     private static final int MIN_VALUE = 1;
@@ -16,7 +16,7 @@ public class Turn {
     private void validateType(String turn) {
         if (!turn.chars()
                 .allMatch(Character::isDigit)) {
-            throw new IllegalArgumentException(INVALID_NAME_TYPE.getMessage());
+            throw new IllegalArgumentException(INVALID_TURN_TYPE.getMessage());
         }
     }
 
