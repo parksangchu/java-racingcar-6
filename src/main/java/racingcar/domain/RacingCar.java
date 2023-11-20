@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.Objects;
+
 public class RacingCar {
 
     private static final int MOVABLE_NUMBER = 4;
@@ -22,5 +24,21 @@ public class RacingCar {
 
     public int getDistance() {
         return distance;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof RacingCar racingCar)) {
+            return false;
+        }
+        return Objects.equals(carName, racingCar.carName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(carName);
     }
 }

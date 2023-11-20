@@ -3,6 +3,7 @@ package racingcar.domain;
 import static racingcar.domain.ErrorMessage.INVALID_NAME_LENGTH;
 import static racingcar.domain.ErrorMessage.INVALID_NAME_TYPE;
 
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class CarName {
@@ -31,5 +32,21 @@ public class CarName {
 
     public String getCarName() {
         return carName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof CarName carName1)) {
+            return false;
+        }
+        return Objects.equals(carName, carName1.carName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(carName);
     }
 }

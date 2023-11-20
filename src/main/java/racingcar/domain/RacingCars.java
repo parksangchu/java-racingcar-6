@@ -11,6 +11,7 @@ public class RacingCars {
 
     public RacingCars(List<RacingCar> racingCars) {
         validateSize(racingCars);
+        validateDuplicated(racingCars);
         this.racingCars = racingCars;
     }
 
