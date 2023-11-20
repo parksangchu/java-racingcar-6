@@ -7,7 +7,6 @@ import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class CarName {
-    private static final int MIN_LENGTH = 1;
     private static final int MAX_LENGTH = 5;
     private static final String REGEX = "[0-9|a-zA-Zㄱ-ㅎㅏ-ㅣ가-힣]*";
     private final String carName;
@@ -19,7 +18,7 @@ public class CarName {
     }
 
     private void validateLength(String carName) {
-        if (carName.length() < MIN_LENGTH || carName.length() > MAX_LENGTH) {
+        if (carName.isEmpty() || carName.length() > MAX_LENGTH) {
             throw new IllegalArgumentException(INVALID_NAME_LENGTH.getMessage());
         }
     }

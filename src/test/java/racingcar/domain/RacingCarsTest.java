@@ -25,7 +25,7 @@ class RacingCarsTest {
         RacingCar sangchu = new RacingCar(new CarName("상추"));
         RacingCar baechu = new RacingCar(new CarName("배추"));
         RacingCar moodosa = new RacingCar(new CarName("무도사"));
-        RacingCars racingCars = new RacingCars(List.of(sangchu, baechu));
+        RacingCars racingCars = new RacingCars(List.of(sangchu, baechu, moodosa));
         sangchu.moveForward(5);
         baechu.moveForward(6);
         Winner winner = racingCars.selectWinner();

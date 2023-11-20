@@ -10,7 +10,7 @@ public class InputConvertor {
     public static List<RacingCar> convertToRacingCars(String input) {
         return Arrays.stream(input.split(DELIMITER))
                 .map(name -> new CarName(name.trim()))
-                .map(carName -> new RacingCar(carName))
+                .map(RacingCar::new)
                 .collect(Collectors.toList());
     }
 }
