@@ -47,6 +47,8 @@
     - 우승한 차량을 저장함
 - ErrorMessage
     - 예외 발생시 출력할 메시지를 저장함
+- RandomNumberGenerator
+    - 0-9 사이 임의의 숫자를 반환함
 
 ### controller
 
