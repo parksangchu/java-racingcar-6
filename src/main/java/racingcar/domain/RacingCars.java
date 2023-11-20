@@ -19,11 +19,9 @@ public class RacingCars {
         }
     }
 
-    public void startRace(Turn turn, int movableNumber) {
-        for (int i = 0; i < turn.getTurn(); i++) {
-            racingCars
-                    .forEach(racingCar -> racingCar.moveForward(movableNumber));
-        }
+    public void startRace(int movableNumber) {
+        racingCars
+                .forEach(racingCar -> racingCar.moveForward(movableNumber));
     }
 
     public List<RacingCar> getRacingCars() {

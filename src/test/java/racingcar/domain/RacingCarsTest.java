@@ -19,12 +19,11 @@ class RacingCarsTest {
     }
 
     @ParameterizedTest
-    @DisplayName("시도 횟수 만큼 앞으로 전진한다.")
-    @CsvSource(value = {"1,1", "2,2", "3,3", "4,4", "5,5"})
-    void startRace(String input, int expect) {
+    @DisplayName("모든 차가 앞으로 전진한다.")
+    @CsvSource(value = {"0,1", "1,1", "2,1", "3,1"})
+    void startRace(int input, int expect) {
         RacingCars racingCars = new RacingCars(InputConvertor.convertToRacingCars("상추,도로보,kelly,서영"));
-        Turn turn = new Turn(input);
-        racingCars.startRace(turn, 5);
-        assertThat(racingCars.getRacingCars().get(0).getDistance()).isEqualTo(expect);
+        racingCars.startRace(5);
+        assertThat(racingCars.getRacingCars().get(input).getDistance()).isEqualTo(expect);
     }
 }
