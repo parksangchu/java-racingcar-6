@@ -1,9 +1,11 @@
 package racingcar.domain;
 
+import static racingcar.domain.ErrorMessage.CANT_FIND_CAR;
 import static racingcar.domain.ErrorMessage.DUPLICATED_NAME;
 import static racingcar.domain.ErrorMessage.INVALID_RACING_CARS_SIZE;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class RacingCars {
     private static final int MIN_SIZE = 2;
@@ -36,7 +38,21 @@ public class RacingCars {
 
     public void startRace() {
         racingCars
-                .forEach(racingCar -> racingCar.moveForward(RandomNumberGenerator.generateRandomNumber()));
+                .forEach(racingCar ->
+                        racingCar.moveForward(RandomNumberGenerator.generateRandomNumber()));
+    }
+
+    public Winner selectWinner() {
+        List<RacingCar> winner = racingCars.stream()
+                .filter(racingCar -> racingCar.getDistance() == findMaxDistanceCar().getDistance())
+                .collect(Collectors.toList());
+        return new Winner(winner);
+    }
+
+    private RacingCar findMaxDistanceCar() {
+        return racingCars.stream()
+                .max(RacingCar::compareTo)
+                .orElseThrow(() -> new IllegalArgumentException(CANT_FIND_CAR.getMessage()));
     }
 
     public List<RacingCar> getRacingCars() {
