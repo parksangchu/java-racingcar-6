@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public class CarName {
     private static final int MIN_LENGTH = 1;
     private static final int MAX_LENGTH = 5;
-    private static final String REGEX = "^[0-9]*[가-힣]*[a-zA-Z]*$";
+    private static final String REGEX = "[0-9|a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]*";
     private final String carName;
 
     public CarName(String carName) {

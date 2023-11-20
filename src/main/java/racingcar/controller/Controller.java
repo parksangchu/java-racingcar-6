@@ -15,11 +15,7 @@ public class Controller implements Runnable {
         RacingCars racingCars = createRacingCars();
         Turn turn = createTurn();
         OutputView.printRaceResultNotice();
-        for (int i = 0; i < turn.getTurn(); i++) {
-            racingCars.startRace();
-            OutputView.printRaceResult(racingCars);
-        }
-
+        repeatRace(racingCars, turn);
     }
 
     private RacingCars createRacingCars() {
@@ -31,5 +27,12 @@ public class Controller implements Runnable {
     private Turn createTurn() {
         String input = InputView.readTurn();
         return new Turn(input);
+    }
+
+    private void repeatRace(RacingCars racingCars, Turn turn) {
+        for (int i = 0; i < turn.getTurn(); i++) {
+            racingCars.startRace();
+            OutputView.printRaceResult(racingCars);
+        }
     }
 }
