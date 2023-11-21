@@ -18,6 +18,10 @@ public class RacingCar implements Comparable<RacingCar> {
         }
     }
 
+    public boolean isWinner(RacingCar maxDistanceCar) {
+        return distance == maxDistanceCar.getDistance();
+    }
+
     public String getCarName() {
         return carName.getCarName();
     }

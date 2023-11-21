@@ -44,7 +44,7 @@ public class RacingCars {
 
     public Winner selectWinner() {
         List<RacingCar> winner = racingCars.stream()
-                .filter(racingCar -> racingCar.getDistance() == findMaxDistanceCar().getDistance())
+                .filter(racingCar -> racingCar.isWinner(findMaxDistanceCar()))
                 .collect(Collectors.toList());
         return new Winner(winner);
     }
