@@ -15,8 +15,10 @@ public class Controller implements Runnable {
     public void run() {
         RacingCars racingCars = createRacingCars();
         Turn turn = createTurn();
+
         OutputView.printRaceResultNotice();
         repeatRace(racingCars, turn);
+
         Winner winner = racingCars.selectWinner();
         OutputView.printWinner(winner);
     }
