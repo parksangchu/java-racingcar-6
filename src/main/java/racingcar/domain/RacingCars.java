@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 public class RacingCars {
     private static final int MIN_SIZE = 2;
     private final List<RacingCar> racingCars;
+    private RacingCar maxDistanceCar;
 
     public RacingCars(List<RacingCar> racingCars) {
         validateSize(racingCars);
@@ -43,14 +44,15 @@ public class RacingCars {
     }
 
     public Winner selectWinner() {
+        findMaxDistanceCar();
         List<RacingCar> winner = racingCars.stream()
-                .filter(racingCar -> racingCar.isWinner(findMaxDistanceCar()))
+                .filter(maxDistanceCar::isWinner)
                 .collect(Collectors.toList());
         return new Winner(winner);
     }
 
-    private RacingCar findMaxDistanceCar() {
-        return racingCars.stream()
+    private void findMaxDistanceCar() {
+        maxDistanceCar = racingCars.stream()
                 .max(RacingCar::compareTo)
                 .orElseThrow(() -> new IllegalArgumentException(CANT_FIND_CAR.getMessage()));
     }
