@@ -55,6 +55,7 @@
 
 - Controller
     - domain과 view를 연결
+    - Turn의 값 만큼 레이스를 반복
 
 ### view
 
